@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/greet.css">
+    <title>Greet</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Greeting App</h1>
+    </div>
+
+    <div class="counter">{{counter}}</div>
+    <div class="error-msg">{{messages.error}}</div>
+    <div class="form-inline">
+        <p class="errorM"><span class="forName">Please enter your name</span> and <span class="errRbtn">select the
+                language</span> then greet by clicking on the Greet button</p>
+        <form action="/" method="POST">
+            <label for="name">Name:</label>
+            <input type="name" id="name" placeholder="Enter name" name="name" class="name"><br>
+
+            <input type="radio" id="english" name="language" value="english" class="english">
+            <label for="english">English</label>
+            <input type="radio" id="setswana" name="language" value="setswana" class="setswana">
+            <label for="setswana">Setswana</label>
+            <input type="radio" id="isiXhosa" name="language" value="isiXhosa" class="isiXhosa">
+            <label for="isiXhosa">isiXhosa</labHTML Reference>
+                <br><br>
+                <button class="greetBtn" type="submit">Greet Me</button> <br>
+                <a class="greetBtn" role="button" href="/greeted">Greeted</a>
+        </form>
+    </div> <br>
+    <div class="display">{{message}}</div>\
+    <br><br><br>
+    
+
+    
+
+
+</body>
+
+</html>
