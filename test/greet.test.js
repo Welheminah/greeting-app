@@ -6,24 +6,29 @@ describe('The Greeting function', function(){
     it('should greet Moipone correctly in English', function(){
 
     let newGreet = theGreeting();
+    newGreet.weGreetPeople('english', 'Moipone')
 
-    assert.equal('Hello Moipone', newGreet.weGreetPeople('english', 'Moipone'))
+    assert.equal('Hello Moipone', newGreet.message())
     });
 
 
     it('should greet Moipone correctly in Setswana', function(){
 
         let newGreet = theGreeting();
-    
-        assert.equal('Dumela Moipone', newGreet.weGreetPeople('setswana', 'Moipone'))
+
+        newGreet.weGreetPeople('setswana', 'Moipone');
+        
+        assert.equal('Dumela Moipone', newGreet.message());
         });
 
     
     it('should greet Moipone correctly in isiXhosa', function(){
 
         let newGreet = theGreeting();
-    
-        assert.equal('Molo Moipone', newGreet.weGreetPeople('isiXhosa', 'Moipone'))
+
+        newGreet.weGreetPeople('isiXhosa', 'Moipone');
+
+        assert.equal('Molo Moipone', newGreet.message())
         });
       
 });

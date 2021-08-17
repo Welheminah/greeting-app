@@ -34,9 +34,9 @@ function theCounter(){
 }
 
 
-function weStorenames(name){
+function weStorenames(ourName){
     
-    // var name = ourName.charAt(0).toUpperCase() + ourName.toLowerCase().slice(1);
+     var name = ourName.charAt(0).toUpperCase() + ourName.toLowerCase().slice(1);
     
     if(nameStore[name] === undefined){
         nameStore[name] = 1;     

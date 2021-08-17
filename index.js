@@ -56,9 +56,14 @@ app.get('/', function(req, res){
 app.post('/', (req, res) => {
     const {name, language} =  req.body;
     if (name === '' || language === null){
-        req.flash('error', 'Please enter the name and select te language');
-
+        req.flash('error', 'Please enter the name and select the language');
         
+    }
+    else if(language === null){
+        req.flash('error', 'Please select the language');
+    }
+    else if(name === ''){
+        req.flash('error', 'Please enter the name');
     }
     else {
         greet.weStorenames(name);
@@ -86,8 +91,13 @@ app.get('/counter', function(req, res){
 app.get('/the-route', function (req, res) {
     const letsCheck = {'name': req.body.name, 'language': req.body.language};
     if (letsCheck.name === '' || letsCheck.language === null){
-        req.flash('message', 'Please enter the name and select te language');
+        req.flash('error', 'Please enter the name and select te language');
         res.redirect('/');
+    }
+    else if(language === null){
+        req.flash('error', 'Please select the language');
+        res.redirect('/');
+
     }
    
 });
