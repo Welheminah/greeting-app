@@ -10,14 +10,14 @@ function weGreetPeople(language, name){
     
 
     if(language === "english"){
-        greetMsg = "Hello "  + userName;
+        greetMsg = "Hello, "  + userName;
 
     }else if(language === "setswana"){
-        greetMsg =  "Dumela " + userName;
+        greetMsg =  "Dumela, " + userName;
         
       
     }else if(language === "isiXhosa"){
-        greetMsg =  "Molo " + userName;
+        greetMsg =  "Molo, " + userName;
         
   
     };

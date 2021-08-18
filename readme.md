@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.com/Welheminah/greeting-app.svg?branch=master)](https://travis-ci.com/Welheminah/greeting-app)
