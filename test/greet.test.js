@@ -8,7 +8,7 @@ describe('The Greeting function', function(){
     let newGreet = theGreeting();
     newGreet.weGreetPeople('english', 'Moipone')
 
-    assert.equal('Hello Moipone', newGreet.message())
+    assert.equal('Hello, Moipone', newGreet.message())
     });
 
 
@@ -18,7 +18,7 @@ describe('The Greeting function', function(){
 
         newGreet.weGreetPeople('setswana', 'Moipone');
         
-        assert.equal('Dumela Moipone', newGreet.message());
+        assert.equal('Dumela, Moipone', newGreet.message());
         });
 
     
@@ -28,7 +28,7 @@ describe('The Greeting function', function(){
 
         newGreet.weGreetPeople('isiXhosa', 'Moipone');
 
-        assert.equal('Molo Moipone', newGreet.message())
+        assert.equal('Molo, Moipone', newGreet.message())
         });
       
 });
@@ -39,9 +39,9 @@ describe('The counter function', function(){
 
     let newGreet = theGreeting();
 
-    newGreet.weStorenames("Hello Moipone");
-    newGreet.weStorenames("Molo Mosa");
-    newGreet.weStorenames("Dumela Okuhle");
+    newGreet.weStorenames("Hello, Moipone");
+    newGreet.weStorenames("Molo, Mosa");
+    newGreet.weStorenames("Dumela, Okuhle");
 
     newGreet.theCounter();
 
@@ -52,12 +52,12 @@ describe('The counter function', function(){
 
         let newGreet = theGreeting();
     
-        newGreet.weStorenames("Hello Moipone");
-        newGreet.weStorenames("Molo Mosa");
-        newGreet.weStorenames("Dumela Okuhle");
-        newGreet.weStorenames("Dumela Theo");
-        newGreet.weStorenames("Hello Ruri");
-        newGreet.weStorenames("Molo Ellen");
+        newGreet.weStorenames("Hello, Moipone");
+        newGreet.weStorenames("Molo, Mosa");
+        newGreet.weStorenames("Dumela, Okuhle");
+        newGreet.weStorenames("Dumela, Theo");
+        newGreet.weStorenames("Hello, Ruri");
+        newGreet.weStorenames("Molo, Ellen");
 
         newGreet.theCounter();
     
