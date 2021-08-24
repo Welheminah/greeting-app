@@ -89,7 +89,9 @@ input[type='radio']:checked:after {
     color: yellow;
     cursor: pointer;
     font-size: 30px;
-    margin-left: -7%;
+    margin-right: 90px;
+    /* justify-content: inherit; */
+    margin-left: -4%;
   }
 
   .form-inline button:hover{
@@ -97,7 +99,9 @@ input[type='radio']:checked:after {
   }
 
   .form-inline a {
-    margin-left: -7%;
+    margin-left: -10%;
+    color: #111;
+
   }
   
   .display {
@@ -110,20 +114,21 @@ input[type='radio']:checked:after {
     margin: auto;
   }
 
-  .tests {
+  .reset {
     align-items: center;
     text-align: center;
   }
-  .tests button {
+  .reset button {
     padding: 20px 30px;
     background: linear-gradient(#999, #111);
     border: 1px solid yellow;
     color: yellow;
     cursor: pointer;
     font-size: 30px;
+    margin-left: -10%;
   }
 
-  .tests button a {
+  .reset button a {
     color: yellow;
   }
 
@@ -153,6 +158,11 @@ input[type='radio']:checked:after {
     .form-inline input {
       margin: 10px 0;
       display: inline-block;
+    }
+    .form-inline button {
+      align-items: center;
+      margin-right: -1%;
+
     }
 
     

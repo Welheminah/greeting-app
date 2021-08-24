@@ -45,7 +45,7 @@ app.get('/', function(req, res){
     const greetMessage = greet.message();
     
     const counting = greet.theCounter();
-    console.log(counting);
+    // console.log(counting);
     res.render('index', { 
         counter: counting, 
         message: greetMessage
@@ -81,11 +81,25 @@ app.get('/greeted', function(req, res){
     )
 });
 
+app.get('/greeted/:name', function(req, res){
+    const name = req.params.name;
+    res.render('greetedName',
+    {
+        name, counter: greet.theValue(name) || 0
+    }
+    )
+});
+
 app.get('/counter', function(req, res){
    
     res.render('',);
 });
 
+app.post('/reset', function(req, res){
+    console.log(greet.resetCounter());
+    greet.resetCounter();
+    res.redirect('/');
+});
 
 
 app.get('/the-route', function (req, res) {

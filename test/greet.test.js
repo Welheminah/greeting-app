@@ -104,3 +104,72 @@ describe('The namestore function', function(){
         assert.deepEqual(["Moipone", "Mosa", "Okuhle", "Thabo"], newGreet.getName())
         });    
 });
+describe('The Greeting function', function(){
+
+    it('It sould be able to clear the data and set the counter back to 0', function(){
+
+    let newGreet = theGreeting();
+    newGreet.weStorenames("Hello, Moipone");
+    newGreet.weStorenames("Molo, Mosa");
+    newGreet.weStorenames("Dumela, Okuhle");
+    newGreet.weStorenames("Dumela, Theo");
+    newGreet.weStorenames("Hello, Ruri");
+    newGreet.weStorenames("Molo, Ellen");
+
+   
+    newGreet.resetCounter();
+
+    assert.equal(0, newGreet.theCounter())
+    });
+
+    it('It sould be able to clear the data and set the counter back to 0', function(){
+
+        let newGreet = theGreeting();
+        newGreet.weStorenames("Moipone");
+        newGreet.weStorenames("Mosa");
+        newGreet.weStorenames("Okuhle");
+        newGreet.weStorenames("Thabo");
+        newGreet.weStorenames("Moipone");
+        newGreet.weStorenames("mosa");
+        newGreet.weStorenames("OKUhLE");
+        newGreet.weStorenames("THabO");
+    
+       
+        newGreet.resetCounter();
+    
+        assert.equal(0, newGreet.theCounter())
+        });  
+});
+
+describe('The Greeting function', function(){
+
+    it('It should be able to show how many times a user have been greeted', function(){
+
+    let newGreet = theGreeting();
+
+    newGreet.weStorenames("Hello, Moipone");
+    newGreet.weStorenames("Molo, Moipone");
+    newGreet.weStorenames("Dumela, Moipone");
+    newGreet.weStorenames("Dumela, Moipone");
+    newGreet.weStorenames("Hello, Moipone");
+    newGreet.weStorenames("Molo, Moipone");
+
+
+    assert.equal("Moipone","Moipone","Moipone","Moipone","Moipone","Moipone", newGreet.theValue())
+    });
+
+    it('It should be able to show how many times a user have been greeted', function(){
+
+    let newGreet = theGreeting();
+
+    newGreet.weStorenames("Hello, Mosa");
+    newGreet.weStorenames("Molo, mosa");
+    newGreet.weStorenames("Dumela, MOSa");
+   
+    
+
+    assert.equal("Mosa","Mosa","Mosa", newGreet.theValue())
+    });
+      
+});
+

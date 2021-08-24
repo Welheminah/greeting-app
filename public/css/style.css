@@ -43,14 +43,20 @@ th, td {
   border-bottom: 1px solid #ddd;
   text-align: left;
   padding: 8px;
+  font-size: 1.5em;
 }
 
+.nameCount {
+  text-align: center;
+  font-size: 2em;
+  color:black;
+}
 
 @media (max-width: 800px) {
-  .form-inline input {
-    margin: 10px 0;
-    display: inline-block;
+  .container{
+    width: 100%;
   }
+  
 
   
   .form-inline {

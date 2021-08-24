@@ -2,7 +2,7 @@
     <h1>Names Greeted</h1>
 </div>
 <br>
-<div>
+<div class="showNames"> 
 <table>
     <tr>
     <th>Names</th>
@@ -10,8 +10,8 @@
     </tr>
     {{#each names}}
     <tr>
-        {{!-- <td>names</td> --}}
-        <td>{{this}}</td>
+        <td><a href="/greeted/{{this}}">{{this}}</a></td>
+        
         
     </tr>
     {{/each}}

@@ -29,14 +29,18 @@
             <input type="radio" id="isiXhosa" name="language" value="isiXhosa" class="isiXhosa">
             <label for="isiXhosa">isiXhosa</labHTML Reference>
                 <br><br>
-                <button class="greetBtn" type="submit">Greet Me</button> <br>
+                <button class="greetBtn" type="submit">Greet Me</button>
+                <br>
                 <a class="greetBtn" role="button" href="/greeted">Greeted</a>
         </form>
     </div> <br>
-    <div class="display">{{message}}</div>\
-    <br><br><br>
-    
-
+    <div class="display">{{message}}</div>
+    <br><br>
+    <div class="reset">
+        <form action="/reset" method="POST">
+        <button class="resetBtn" type="submit">Reset</button>
+    </form>
+    </div>
     
 
 

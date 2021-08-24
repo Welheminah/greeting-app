@@ -71,6 +71,26 @@ function errorMsg(name, language){
     }
 }
 
+function clearData(){
+    return "";
+}
+
+function resetCounter(){
+    nameStore = {};
+}
+
+function theValue(name){
+   
+    for (const key in nameStore) {
+       
+        if (nameStore.hasOwnProperty(key) && key == name) {
+            const element = nameStore[key];
+            
+            return element;
+        }
+    }
+}
+
 return {
     weGreetPeople,
     weStorenames,
@@ -79,7 +99,10 @@ return {
     theName,
     message,
     errorMsg,
-    testing
+    testing,
+    clearData,
+    resetCounter,
+    theValue
 }
 
 }
