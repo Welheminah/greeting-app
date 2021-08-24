@@ -5,9 +5,17 @@ var nameStore = {};
 var greetMsg = "";
  var errorMsgs = "";
 
+var regex = /^[A-Za-z]+$/
+
 function weGreetPeople(language, name){
+
+
     var userName = name.charAt(0).toUpperCase() + name.toLowerCase().slice(1);
-    
+    var test = regex.test(userName);
+
+    if(!test){
+        return "Invalid"
+    }
 
     if(language === "english"){
         greetMsg = "Hello, "  + userName;
@@ -37,6 +45,11 @@ function theCounter(){
 function weStorenames(ourName){
     
      var name = ourName.charAt(0).toUpperCase() + ourName.toLowerCase().slice(1);
+     var test = regex.test(name);
+
+     if(!test){
+         return "Invalid"
+     }
     
     if(nameStore[name] === undefined){
         nameStore[name] = 1;     
