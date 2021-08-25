@@ -72,7 +72,8 @@ app.post('/', (req, res) => {
     
     
     res.redirect('/');
-});
+})
+;
 
 app.get('/greeted', function(req, res){
     const nameList = greet.getName();

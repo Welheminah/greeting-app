@@ -33,39 +33,39 @@ describe('The Greeting function', function(){
       
 });
 
-describe('The counter function', function(){
+// describe('The counter function', function(){
 
-    it('it should return the number of the names greeted', function(){
+//     it('it should return the number of the names greeted', function(){
 
-    let newGreet = theGreeting();
+//     let newGreet = theGreeting();
 
-    newGreet.weStorenames("Hello, Moipone");
-    newGreet.weStorenames("Molo, Mosa");
-    newGreet.weStorenames("Dumela, Okuhle");
+//     newGreet.weStorenames("Hello, Moipone");
+//     newGreet.weStorenames("Molo, Mosa");
+//     newGreet.weStorenames("Dumela, Okuhle");
 
-    newGreet.theCounter();
+//     newGreet.theCounter();
 
-    assert.equal(3, newGreet.theCounter())
-    });    
+//     assert.equal(3, newGreet.theCounter())
+//     });    
 
-    it('it should return the number of the names greeted', function(){
+//     it('it should return the number of the names greeted', function(){
 
-        let newGreet = theGreeting();
+//         let newGreet = theGreeting();
     
-        newGreet.weStorenames("Hello, Moipone");
-        newGreet.weStorenames("Molo, Mosa");
-        newGreet.weStorenames("Dumela, Okuhle");
-        newGreet.weStorenames("Dumela, Theo");
-        newGreet.weStorenames("Hello, Ruri");
-        newGreet.weStorenames("Molo, Ellen");
+//         newGreet.weStorenames("Hello, Moipone");
+//         newGreet.weStorenames("Molo, Mosa");
+//         newGreet.weStorenames("Dumela, Okuhle");
+//         newGreet.weStorenames("Dumela, Theo");
+//         newGreet.weStorenames("Hello, Ruri");
+//         newGreet.weStorenames("Molo, Ellen");
 
-        newGreet.theCounter();
+//         newGreet.theCounter();
     
-        assert.equal(6, newGreet.theCounter())
-        });    
+//         assert.equal(6, newGreet.theCounter())
+//         });    
     
 
-});
+// });
 
 describe('The namestore function', function(){
 
