@@ -1,4 +1,4 @@
-module.exports = function theGreeting(){
+module.exports = function theGreeting(pool){
 
 var nameStore = {};
 
@@ -7,14 +7,23 @@ var greetMsg = "";
 
 var regex = /^[A-Za-z]+$/
 
-function weGreetPeople(language, name){
+async function weGreetPeople(language, name){
 
-
-    var userName = name.charAt(0).toUpperCase() + name.toLowerCase().slice(1);
+    try{
+        var userName = name.charAt(0).toUpperCase() + name.toLowerCase().slice(1);
     var test = regex.test(userName);
 
     if(!test){
         return "Invalid"
+    }
+
+    var dbName = await pool.query('SELECT names FROM greeted_people WHERE names = $1', [name]);
+
+    if (dbName.rowCount === 0){
+        await pool.query('INSERT INTO greeted_people(names, greeted_no) VALUES($1, $2)',[name, 1])
+    }
+    else{
+        await pool.query('UPDATE greeted_people SET greeted_no = greeted_no +1 WHERE names = $1',[name])
     }
 
     if(language === "english"){
@@ -29,6 +38,13 @@ function weGreetPeople(language, name){
         
   
     };
+
+    }
+    catch(err){
+        console.error('Your error is', err)
+        throw err;
+    }
+    
     
 }
 
@@ -103,6 +119,8 @@ function theValue(name){
         }
     }
 }
+
+
 
 return {
     weGreetPeople,

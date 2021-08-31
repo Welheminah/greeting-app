@@ -141,6 +141,10 @@ input[type='radio']:checked:after {
     padding: 10px;
   }
 
+  /* .count {
+    font-size: 30px;
+  } */
+
   .error-msg {
     font-size: 2em;
     color: red;
@@ -151,6 +155,7 @@ input[type='radio']:checked:after {
     color: crimson;
     font-weight: bold;
   }
+  
 
   
   

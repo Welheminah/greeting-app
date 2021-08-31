@@ -13,11 +13,11 @@
         <h1>Greeting App</h1>
     </div>
 
-    <div class="counter">{{counter}}</div>
+    <div class="counter"><span class=></span>{{counter}}</div>
     <div class="error-msg">{{messages.error}}</div>
     <div class="form-inline">
         <p class="errorM"><span class="forName">Please enter your name</span> and <span class="errRbtn">select the
-                language</span> then greet by clicking on the Greet button</p>
+                language</span> then greet by clicking on the Greet Me button</p>
         <form action="/" method="POST">
             <label for="name">Name:</label>
             <input type="name" id="name" placeholder="Enter name" name="name" class="name"><br>
@@ -31,7 +31,7 @@
                 <br><br>
                 <button class="greetBtn" type="submit">Greet Me</button>
                 <br>
-                <a class="greetBtn" role="button" href="/greeted">Greeted</a>
+                <a class="greetBtn" role="button" href="/greeted">Greeted Names</a>
         </form>
     </div> <br>
     <div class="display">{{message}}</div>
