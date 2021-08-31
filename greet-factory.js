@@ -57,6 +57,7 @@ function theCounter(){
     return list.length;
 }
 
+//name storing
 
 function weStorenames(ourName){
     
