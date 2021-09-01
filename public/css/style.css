@@ -12,6 +12,7 @@ body {
   text-align: center;
   color: yellow;
   background:linear-gradient(#999, #111); 
+  margin-left: 10em;
 }
 
 
@@ -24,6 +25,7 @@ body {
   font-size: 30px;
   align-items: center;
   margin-left: 26em;
+  text-decoration: none;
 }
 
 button:hover{

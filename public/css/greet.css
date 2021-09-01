@@ -24,6 +24,9 @@
     font-size: 200%;
 } */
 
+.container h1{
+  margin-left: -5em;
+}
 .form-inline {  
     /* display: flex;  */
     flex-flow: row wrap;
@@ -112,6 +115,7 @@ input[type='radio']:checked:after {
     align-items: center;
     border: 3px solid yellow;
     margin: auto;
+    margin-left:  10em;
   }
 
   .reset {
