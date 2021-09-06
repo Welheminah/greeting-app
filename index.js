@@ -58,8 +58,9 @@ app.get('/', async function (req, res) {
 
     const greetMessage = greet.message();
 
-    const counting = greet.theCounter();
-    // console.log(counting);
+    const counting = await greet.theCounter();
+    console.log(counting);
+    console.log(greetMessage);
     res.render('index', {
         counter: counting,
         message: greetMessage
@@ -88,30 +89,29 @@ app.post('/', async (req, res) => {
     res.redirect('/');
 });
 
-app.get('/greeted', function (req, res) {
-    const nameList = greet.getName();
+app.get('/greeted',async function (req, res) {
+    //console.log(greet.getName());
+    const nameList = await greet.getName();
     res.render('greeted', {
         names: nameList
     })
 });
 
-app.get('/greeted/:name', function (req, res) {
+
+app.get('/greeted/:name', async function (req, res) {
     const name = req.params.name;
+    const letsCount = await greet.weStorenames(name)
+    
     res.render('greetedName', {
-        name,
-        counter: greet.theValue(name) || 0
+        name : letsCount.names,
+        counter: letsCount.couter
     })
 });
 
-app.get('/counter', function (req, res) {
-
-    res.render('', );
-});
-
 app.post('/reset', function (req, res) {
-    console.log(greet.resetCounter());
+    //console.log(greet.resetCounter());
     greet.resetCounter();
-    res.redirect('/');
+    res.redirect('/')
 });
 
 
@@ -121,7 +121,7 @@ app.get('/the-route', function (req, res) {
         'language': req.body.language
     };
     if (letsCheck.name === '' || letsCheck.language === null) {
-        req.flash('error', 'Please enter the name and select te language');
+        req.flash('error', 'Please enter the name and select the language');
         res.redirect('/');
     } else if (language === null) {
         req.flash('error', 'Please select the language');
@@ -130,8 +130,6 @@ app.get('/the-route', function (req, res) {
     }
 
 });
-
-
 
 
 const PORT = process.env.PORT || 3003;
