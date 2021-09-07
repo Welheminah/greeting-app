@@ -43,39 +43,27 @@ module.exports = function theGreeting(pool) {
     }
 
     function message() {
+       try {
         return greetMsg;
+       } catch (error) {
+           
+       }
     }
 
     async function theCounter() {
-        var list = await pool.query("SELECT * FROM users");
+        try {
+            var list = await pool.query("SELECT * FROM users");
         return list.rowCount;
-        // var list = Object.keys(nameStore)
-        // return list.length;
+        } catch (error) {
+            console.error(error)
+        }
+        
     }
 
-   
-
-    //name storing
-
-    // async function weStorenames(ourName) {
-    //     var storedNames = await pool.query("SELECT * FROM users")
-    //     nameStore = {};
-    //     var name = ourName.charAt(0).toUpperCase() + ourName.toLowerCase().slice(1);
-    //     var test = regex.test(name);
-
-    //     if (!test) {
-    //         return "Invalid"
-    //     }
-
-    //     if (nameStore[name] === undefined) {
-    //         nameStore[name] = 1;
-    //     } else {
-    //         nameStore[name]++;
-    //     }
-    // }
 
     async function weStorenames(name){
-        var greetedNames = await pool.query("SELECT * FROM users WHERE names = $1", [name]);
+        try {
+            var greetedNames = await pool.query("SELECT * FROM users WHERE names = $1", [name]);
         if(name){
             var nameStore = {};
             for (let i = 0; i < greetedNames.rows.length; i++){
@@ -92,16 +80,22 @@ module.exports = function theGreeting(pool) {
         // else {
         //     return greetedNames.rows;
         // }
+        } catch (error) {
+            
+        }
     }
 
-    function testing() {
-        return weStorenames();
-    }
+    
 
     async function getName() {
+       try {
         var names = await pool.query("SELECT names FROM users");
         console.log(names.rows);
         return names.rows
+       } catch (error) {
+           console.log(error)
+           
+       }
     }
 
     function theName() {
@@ -124,17 +118,7 @@ module.exports = function theGreeting(pool) {
         return theClear;
     }
 
-    // function theValue(name) {
-
-    //     for (const key in nameStore) {
-
-    //         if (nameStore.hasOwnProperty(key) && key == name) {
-    //             const element = nameStore[key];
-
-    //             return element;
-    //         }
-    //     }
-    // }
+    
 
 
 
@@ -147,8 +131,7 @@ module.exports = function theGreeting(pool) {
         message,
         errorMsg,
         testing,
-        resetCounter,
-        // theValue,
+        resetCounter
     }
 
 }
