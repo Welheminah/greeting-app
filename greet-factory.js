@@ -74,7 +74,6 @@ module.exports = function theGreeting(pool) {
                 }
 
             }
-            console.log(nameStore);
             return nameStore;
         }
         // else {
@@ -90,7 +89,6 @@ module.exports = function theGreeting(pool) {
     async function getName() {
        try {
         var names = await pool.query("SELECT names FROM users");
-        console.log(names.rows);
         return names.rows
        } catch (error) {
            console.log(error)
