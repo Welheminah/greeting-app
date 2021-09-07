@@ -130,7 +130,6 @@ module.exports = function theGreeting(pool) {
         theName,
         message,
         errorMsg,
-        testing,
         resetCounter
     }
 
