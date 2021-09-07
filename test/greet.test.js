@@ -4,7 +4,7 @@ let theGreeting = require("../greet-factory");
 const pg = require("pg");
 const Pool = pg.Pool;
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/database_test';
+const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/database';
 
 const pool = new Pool({
     connectionString
@@ -20,10 +20,10 @@ describe('The basic database web app', function(){
     it('should pass the db test', async function(){
         
         let greetInstance = theGreeting(pool);
-        await greetInstance.weGreetPeople('Banshee')
+        await greetInstance.weGreetPeople('Banshee', 'Ruri')
 
-        let greetMsg = await greetInstance.getName();
-        assert.equal(1, greetMsg.length);
+        let list = await greetInstance.getName();
+        assert.equal(2, list.length);
 
     });
 

@@ -104,13 +104,13 @@ app.get('/greeted/:name', async function (req, res) {
     
     res.render('greetedName', {
         name : letsCount.names,
-        counter: letsCount.couter
+        counter: letsCount.counter
     })
 });
 
-app.post('/reset', function (req, res) {
+app.post('/reset', async function (req, res) {
     //console.log(greet.resetCounter());
-    greet.resetCounter();
+   await greet.resetCounter();
     res.redirect('/')
 });
 

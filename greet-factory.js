@@ -75,15 +75,15 @@ module.exports = function theGreeting(pool) {
     // }
 
     async function weStorenames(name){
-        var greetedNames = await pool.query("SELECT * FROM users");
+        var greetedNames = await pool.query("SELECT * FROM users WHERE names = $1", [name]);
         if(name){
             var nameStore = {};
             for (let i = 0; i < greetedNames.rows.length; i++){
                  nameStore["names"] = greetedNames.rows[i].names;
-                 nameStore["couter"] = greetedNames.rows[i].greeted_no;
-                // if(nameStore === name){
-                //     nameStore = greetedNames.rows[i]
-                // }
+                 nameStore["counter"] = greetedNames.rows[i].greeted_no;
+                if(nameStore === name){
+                    nameStore = greetedNames.rows[i]
+                }
 
             }
             console.log(nameStore);
@@ -100,7 +100,6 @@ module.exports = function theGreeting(pool) {
 
     async function getName() {
         var names = await pool.query("SELECT names FROM users");
-        // var list = Object.keys(nameStore);
         console.log(names.rows);
         return names.rows
     }
