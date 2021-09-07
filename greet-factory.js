@@ -85,7 +85,7 @@ module.exports = function theGreeting(pool) {
         }
     }
 
-    
+
 
     async function getName() {
        try {
