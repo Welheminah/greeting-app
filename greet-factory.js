@@ -76,9 +76,7 @@ module.exports = function theGreeting(pool) {
             }
             return nameStore;
         }
-        // else {
-        //     return greetedNames.rows;
-        // }
+
         } catch (error) {
             
         }

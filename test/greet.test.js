@@ -17,13 +17,58 @@ describe('The basic database web app', function(){
         await pool.query("DELETE FROM users");
     });
 
-    it('should pass the db test', async function(){
+    it('should be able to greet the user with the language selected by the user', async function(){
         
         let greetInstance = theGreeting(pool);
         await greetInstance.weGreetPeople('english', 'Ruri')
 
-        let list = await greetInstance.message();
-        assert.equal('Hello, Ruri', list);
+        let greet = await greetInstance.message();
+        
+        assert.equal('Hello, Ruri', greet);
+
+    });
+
+
+    it('should count each name once, and dont duplicate the name', async function(){
+        
+        let greetInstance = theGreeting(pool);
+        await greetInstance.weGreetPeople('english', 'Ruri')
+        await greetInstance.weGreetPeople('setswana', 'Ruri')
+        await greetInstance.weGreetPeople('isiXhosa', 'Ruri')
+    
+        let list = await greetInstance.theCounter();
+        
+        assert.equal(1, list);
+
+    });
+
+    it('should show how many times a user has been greeted', async function(){
+        
+        let greetInstance = theGreeting(pool);
+        await greetInstance.weGreetPeople('english','Ruri')
+        await greetInstance.weGreetPeople('setswana', 'Ruri')
+        await greetInstance.weGreetPeople('isiXhosa', 'Ruri')
+        
+        let userCount = await greetInstance.weStorenames('Ruri');
+        
+        assert.equal(3, userCount.counter);
+        assert.equal('Ruri', userCount.names);
+
+    });
+
+    it('should return the names that were greeted', async function(){
+        
+        let greetInstance = theGreeting(pool);
+        await greetInstance.weGreetPeople('english','Ruri')
+        await greetInstance.weGreetPeople('setswana', 'Moipone')
+        await greetInstance.weGreetPeople('isiXhosa', 'ben')
+
+
+        let nameList = await greetInstance.getName();
+        assert.equal('Ruri', nameList[0].names);
+        assert.equal('Moipone', nameList[1].names);
+        assert.equal('Ben', nameList[2].names);
+
 
     });
 

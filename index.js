@@ -63,8 +63,7 @@ app.get('/', async function (req, res) {
     const greetMessage = greet.message();
 
     const counting = await greet.theCounter();
-    console.log(counting);
-    console.log(greetMessage);
+
     res.render('index', {
         counter: counting,
         message: greetMessage
@@ -117,7 +116,7 @@ app.get('/greeted/:name', async function (req, res) {
    try {
     const name = req.params.name;
     const letsCount = await greet.weStorenames(name)
-    
+    console.log(greet.weStorenames(name))
     res.render('greetedName', {
         name : letsCount.names,
         counter: letsCount.counter
