@@ -8,8 +8,13 @@ env:
   - DATABASE_URL || 'postgresql://postgres@localhost:5432/greetTest';
 
 before_script:
-  - psql -c 'create database  greetTest;' -U postgres
-  - psql -U postgres -d greetTest -a -f database.sql
+  - psql -c 'create database  test;' -U postgres
+  - psql -U postgres -d test -a -f database.sql
 
 services:
   - postgresql
+addons:
+  postgresql: '9.4'
+  apt:
+    packages:
+      - postgresql-server-dev-9.4
