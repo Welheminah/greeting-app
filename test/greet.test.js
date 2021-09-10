@@ -50,7 +50,7 @@ describe('The basic database web app', function(){
         await greetInstance.weGreetPeople('isiXhosa', 'Ruri')
         
         let userCount = await greetInstance.weStorenames('Ruri');
-        
+       
         assert.equal(3, userCount.counter);
         assert.equal('Ruri', userCount.names);
 
