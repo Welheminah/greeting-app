@@ -10,56 +10,56 @@ const pool = new Pool({
     connectionString
 });
 
-describe('The basic database web app', function(){
+describe('The Greeting database web app', function () {
 
-    beforeEach(async function(){
+    beforeEach(async function () {
         // clean the tables before each test run
         await pool.query("DELETE FROM users");
     });
 
-    it('should be able to greet the user with the language selected by the user', async function(){
-        
+    it('should be able to greet the user with the language selected by the user', async function () {
+
         let greetInstance = theGreeting(pool);
         await greetInstance.weGreetPeople('english', 'Ruri')
 
         let greet = await greetInstance.message();
-        
+
         assert.equal('Hello, Ruri', greet);
 
     });
 
 
-    it('should count each name once, and dont duplicate the name', async function(){
-        
+    it('should count each name once, and dont duplicate the name', async function () {
+
         let greetInstance = theGreeting(pool);
         await greetInstance.weGreetPeople('english', 'Ruri')
         await greetInstance.weGreetPeople('setswana', 'Ruri')
         await greetInstance.weGreetPeople('isiXhosa', 'Ruri')
-    
+
         let list = await greetInstance.theCounter();
-        
+
         assert.equal(1, list);
 
     });
 
-    it('should show how many times a user has been greeted', async function(){
-        
+    it('should show how many times a user has been greeted', async function () {
+
         let greetInstance = theGreeting(pool);
-        await greetInstance.weGreetPeople('english','Ruri')
+        await greetInstance.weGreetPeople('english', 'Ruri')
         await greetInstance.weGreetPeople('setswana', 'Ruri')
         await greetInstance.weGreetPeople('isiXhosa', 'Ruri')
-        
+
         let userCount = await greetInstance.weStorenames('Ruri');
-       
+
         assert.equal(3, userCount.counter);
         assert.equal('Ruri', userCount.names);
 
     });
 
-    it('should return the names that were greeted', async function(){
-        
+    it('should return the names that were greeted', async function () {
+
         let greetInstance = theGreeting(pool);
-        await greetInstance.weGreetPeople('english','Ruri')
+        await greetInstance.weGreetPeople('english', 'Ruri')
         await greetInstance.weGreetPeople('setswana', 'Moipone')
         await greetInstance.weGreetPeople('isiXhosa', 'ben')
 
@@ -72,7 +72,29 @@ describe('The basic database web app', function(){
 
     });
 
-    after(function(){
+    it('should be able to reset the counter back 0', async function () {
+
+        let greetInstance = theGreeting(pool);
+
+        await greetInstance.weGreetPeople('english', 'Ruri')
+        await greetInstance.weGreetPeople('setswana', 'Moipone')
+        await greetInstance.weGreetPeople('isiXhosa', 'ben')
+        
+        var reset = await greetInstance.weStorenames('Ruri'); 
+
+
+
+
+        var res = await greetInstance.resetCounter();
+        assert.equal(0, res.rows.length);
+
+
+
+    });
+
+
+
+    after(function () {
         pool.end();
     })
 });

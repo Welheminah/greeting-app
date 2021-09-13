@@ -110,8 +110,12 @@ module.exports = function theGreeting(pool) {
 
 
     async function resetCounter() {
+       try {
         let theClear = await pool.query("DELETE FROM users;")
         return theClear;
+       } catch (error) {
+        console.log(error)
+       }
     }
 
     
