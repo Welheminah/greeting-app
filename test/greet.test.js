@@ -80,19 +80,11 @@ describe('The Greeting database web app', function () {
         await greetInstance.weGreetPeople('setswana', 'Moipone')
         await greetInstance.weGreetPeople('isiXhosa', 'ben')
         
-        var reset = await greetInstance.weStorenames('Ruri'); 
-
-
-
 
         var res = await greetInstance.resetCounter();
         assert.equal(0, res.rows.length);
 
-
-
     });
-
-
 
     after(function () {
         pool.end();

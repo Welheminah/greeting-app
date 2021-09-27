@@ -1,7 +1,7 @@
 {
   "name": "greeting-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "[![Build Status](https://travis-ci.com/Welheminah/greeting-app.svg?branch=master)](https://travis-ci.com/Welheminah/greeting-app)",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.32.0",
     "mocha": "^9.0.3"
   },
   "dependencies": {
@@ -23,5 +24,13 @@
     "express-handlebars": "^5.3.3",
     "express-session": "^1.17.2",
     "pg": "^8.7.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Welheminah/greeting-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Welheminah/greeting-app/issues"
+  },
+  "homepage": "https://github.com/Welheminah/greeting-app#readme"
 }
